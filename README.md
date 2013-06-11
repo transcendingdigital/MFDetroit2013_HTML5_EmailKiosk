@@ -1,8 +1,8 @@
 Maker Faire Detroit 2013 HTML5 Email Kiosk
 ==============================
 
-This kiosk application was created for Maker Faire Detroit 2013 to accompany a green screen Kinect experience. It will be deployed in the
-exhibit space on an ipad1 and ipad2.
+This kiosk application was created for Maker Faire Detroit 2013 to accompany a green screen Kinect experience. This project is in no way affiliated with the
+Henry Ford or Maker Faire.  It was an independent project. The experience will be deployed in the exhibit space on an ipad1 and ipad2.
 
 A html5 kiosk for emailing user photos taken in an exhibit space. Integrates with Drupal 7 or a local web server. Most development on this project
 has been tested under ios5, ios6, Firefox, IE, and Chrome.
