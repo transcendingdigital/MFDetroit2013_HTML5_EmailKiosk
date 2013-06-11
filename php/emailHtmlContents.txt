@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        
+        <title>Maker Faire Detroit 2013 Photo Experience</title>
+		<style type="text/css">
+			/* Client-specific Styles */
+			#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" button. */
+			body{width:100% !important; min-width:100%;} .ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to display emails at full width */
+			body{-webkit-text-size-adjust:none;} /* Prevent Webkit platforms from changing default text sizes. */
+			
+			/* Reset Styles */
+			img{border:0; height:auto; line-height:100%; outline:none; text-decoration:none;}
+			table td{border-collapse:collapse;border-spacing:0px;}
+		</style>
+	</head>
+    <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" style="margin:0; padding:0;">
+    	<center>
+        	<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" style="background-color:#FFFFFF;height:100% !important; margin:0; padding:0; width:100% !important;">
+            	<tr>
+                	<td align="center" valign="top">
+                        <!-- // Begin Template Preheader \\ -->
+
+                        <!-- // End Template Preheader \\ -->
+                    	<table border="0" cellpadding="0" cellspacing="0" width="600" style="background-color:#00A1FF;border: 1px solid #DDDDDD;">
+                        	<tr>
+                            	<td align="center" valign="top">
+									
+                                    <!-- // Begin Template Header \\ -->
+                                	<table border="0" cellpadding="0" cellspacing="0" width="600" style="border-bottom-style:solid; border-bottom-color:#B0B3B5;border-bottom-width:1px;background-color:#FFFFFF;">
+										<tr>
+											<td align="center">
+												<div style="display:block;color:#00A1FF;font-family:Helvetica Neue,Arial;font-size:48px;font-weight:525;line-height:100%;">Maker Faire Detroit 2013</div>
+											</td>
+										</tr>
+                                    </table>
+                                    <!-- // End Template Header \\ -->
+									
+                                </td>
+                            </tr>
+                        	<tr>
+                            	<td align="center" valign="top">
+                                    <!-- // Begin Template Body \\ -->
+                                	<table border="0" cellpadding="0" cellspacing="0" id="templateBody">
+                                    	<tr>
+											<td colspan="3">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+													            <tr height="30px">
+																	<td width="20px"></td>
+																	<td width="395px"></td>
+																	<td width="185px" style="background-color:#FFFFFF;">
+																	</td>
+                                                                </tr>
+                                                                <tr>
+																	<td width="20px"></td>
+                                                                    <td width="395px" align="left" valign="top">
+																		<table border="0" cellpadding="0" cellspacing="0">
+																			<tr>
+																				<td>
+																					<div style="color:#FFFFFF;font-family:Arial;font-size:12px;line-height:150%;text-align:left;">
+																						<h2 style="color:#FFFFFF;display:block;font-family:Arial;font-size:18px;font-weight:bold;line-height:100%;margin-top:0;margin-right:0;margin-bottom:10px;margin-left:0;text-align:left;">Thanks!</h2>
+																						Thank you for using the green screen experience at Maker Faire Detroit 2013! We hope you learned a few tricks, made new friends, and most importantly had fun.
+																						<br/><br/><br/>
+																					</div>
+																				</td>
+																			</tr>
+																		</table>
+                                                                    </td>
+                                                                    <td width="185px" valign="top" style="background-color:#FFFFFF;">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+																	<td width="20px"></td>
+                                                                    <td width="395px" align="left" valign="top">
+																		<table border="0" cellpadding="0" cellspacing="0">
+																			<tr>
+																				<td>
+																					<div style="color:#FFFFFF;font-family:Arial;font-size:12px;line-height:150%;text-align:left;">
+																						This experience was created by Transcending Digital, a Michigan company that specializes in class A exhibits and interactive experiences across the United States and web. If you've enjoyed this exhibit and would like to discuss an imaginative experience for your institution or business please <a href="http://www.transcendingdigital.com/node/23" style="color:#FFFFFF;font-family:Arial;font-size:12px;font-weight:bold;text-decoration:underline;">contact us</a>.
+																						<br/><br/><br/><br/><br/>
+																					</div>
+																				</td>
+																			</tr>
+																		</table>
+                                                                    </td>
+                                                                    <td width="185px" align="center" valign="top" style="background-color:#FFFFFF;">
+	                                                                    <a href="http://www.transcendingdigital.com"><img style="display:inline;height:auto;" src="http://www.transcendingdigital.com/newsletter/tdLogo.gif" alt="Transcending Digital Logo" /></a>
+																		<br/><a href="http://www.transcendingdigital.com" style="color:#616161;font-family:Arial;font-size:10px;font-weight:bold;text-decoration:underline;line-height:130%;word-wrap:break-word;">http://www.transcendingdigital.com</a>
+																		<br/><div style="color:#616161;font-family:Arial;font-size:10px;font-weight:bold;line-height:130%;">989-262-9721</div>
+																		<a href="http://www.transcendingdigital.com/node/23" style="color:#616161;font-family:Arial;font-size:10px;font-weight:bold;text-decoration:underline;line-height:130%;">Contact Us</a>
+                                                                    </td>
+                                                                </tr>
+                                                </table>
+											</td>
+                                        </tr>
+										<!-- Very Bottom content -->
+										<tr>
+											<td colspan="3">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                                <tr>
+																	<td width="60px"></td>
+                                                                    <td width="355px" align="left" valign="top" style="border-left: 2px solid #FFFFFF;border-top: 2px solid #FFFFFF;border-bottom:2px solid #FFFFFF;border-radius: 5px 0 0 5px; -moz-border-radius: 5px 0 0 5px;">
+			                                                            <table border="0" cellpadding="10" cellspacing="0">
+																			<tr>
+																				<td>
+																		<div style="color:#FFFFFF;font-family:Arial;font-size:12px;">
+																			<strong style="font-family:Arial;font-size:18px;font-weight:bold;">Hack This Exibit!</strong>
+																			<br/><br/>In the spirit of Maker Faire, and to celebrate maker culture; this exhibit has been completley open sourced!  You can get your hands on everything over at Github.
+			                                                            </div>
+																				</td>
+																			</tr>
+																		</table>
+                                                                    </td>
+                                                                    <td width="185px" valign="top">
+                                                                        <table border="0" cellpadding="10" cellspacing="0">
+																			<tr>
+																				<td align="center" style="background-color:#FFFFFF;">
+																					<div style="font-family:Arial;font-size:8px;font-weight:bold;color:#505050;line-height:130%;">
+																						<a href="http://www.github.com"><img src="http://www.transcendingdigital.com/newsletter/githubLogo.gif" alt="Github Logo" /></a>
+																						<a href="https://www.github.com/charlespalen" style="color:#000000;font-family:Arial;font-size:10px;font-weight:bold;text-decoration:underline;word-wrap:break-word;-ms-word-break: break-all; word-break: break-all;word-break: break-word;hyphens: auto;">https://www.github.com/
+																						charlespalen</a>
+																					</div>
+																				</td>
+																			</tr>
+																		</table>
+                                                                    </td>
+                                                                </tr>
+																<tr>
+																	<td height="10px"></td>
+																	<td height="10px"></td>
+																	<td height="10px" style="background-color:#FFFFFF;"></td>
+																</tr>
+                                                </table>
+											</td>
+										</tr>
+										<!-- End very bottom content -->
+                                    </table>
+                                    <!-- // End Template Body \\ -->
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </body>
+</html>

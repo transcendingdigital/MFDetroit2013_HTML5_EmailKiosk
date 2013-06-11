@@ -1,0 +1,626 @@
+<!--
+* index
+* http://www.transcendingdigital.com
+*
+*
+* Copyright (c) 2013 Transcending Digital LLC
+* This series is intended as a state of HTML5 investigation into
+* the viability of its use in touchscreen kiosk applications.
+*
+* Permission is hereby granted, free of charge, to any person
+* obtaining a copy of this software and associated documentation
+* files (the "Software"), to deal in the Software without
+* restriction, including without limitation the rights to use,
+* copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the
+* Software is furnished to do so, subject to the following
+* conditions:
+*
+* The above copyright notice and this permission notice shall be
+* included in all copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+* OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+* NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+* WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+* FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+* OTHER DEALINGS IN THE SOFTWARE.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Email Photos</title>
+
+	<!-- Disable scaling on ios -->
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0" />
+	<!-- Full screen for ios -->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	
+	<!-- Icons when added to ios desktop -->
+	<!-- Standard iPhone --> 
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/touch-icon-iphone-114.png" />
+	<!-- Retina iPhone --> 
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/touch-icon-iphone-114.png" />
+	<!-- Standard iPad --> 
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/touch-icon-ipad-144.png" />
+	<!-- Retina iPad --> 
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/touch-icon-ipad-144.png" />
+
+	<!-- Dont let ios scale the page -->
+	<meta name="viewport" content="width=device-width" />
+	
+	<!-- Support Libraries -->
+	<script type="text/javascript" src="lib/preloadjs-0.2.0.min.js"></script>
+	<script type="text/javascript" src="lib/soundjs-NEXT.min.js"></script>
+	<script type="text/javascript" src="lib/easeljs-0.5.0.min.js"></script>
+	<script type="text/javascript" src="lib/tweenjs-0.3.0.min.js"></script>
+	<script type="text/javascript" src="lib/CSSPlugin.js"></script>
+	<!-- Other Logic Sections -->
+	<script type="text/javascript" src="src/transcendingdigital/SectionAttract.js"></script>
+	<script type="text/javascript" src="src/transcendingdigital/SectionAudio.js"></script>
+	<script type="text/javascript" src="src/transcendingdigital/SectionMain.js"></script>
+	<script type="text/javascript" src="src/transcendingdigital/SectionPhoto.js"></script>
+	<script type="text/javascript" src="src/transcendingdigital/SectionPhotoGrid.js"></script>
+	<script type="text/javascript" src="src/transcendingdigital/SectionPrivacyPolicy.js"></script>
+	<script type="text/javascript" src="src/transcendingdigital/SectionEnd.js"></script>
+	<script type="text/javascript" src="src/transcendingdigital/SectionEmailInput.js"></script>
+	<script type="text/javascript" src="src/transcendingdigital/SectionVideo.js"></script>
+	<script type="text/javascript" src="src/transcendingdigital/UtilBGImgLoader.js"></script>
+	<script type="text/javascript" src="src/transcendingdigital/UtilSFXPlayer.js"></script>
+	<script type="text/javascript" src="src/transcendingdigital/UtilVisualHelper.js"></script>
+	<script type="text/javascript" src="src/transcendingdigital/ApplicationEventConsts.js"></script>
+	<script type="text/javascript" src="src/transcendingdigital/TimedNetworkDataManager.js"></script>
+	<style type="text/css">
+	body {
+		background:#FFFFFF;
+		margin:0px;
+	}
+	.singleContainer {
+		width:284px;
+		height:163px;
+		float:left;
+		margin:10px;
+		//background:#718F0A;
+	}
+	img.insideImg {
+		max-width:100%;
+		max-height:100%;
+		border-color:#F30000;
+		border-style:solid;
+		border-width:5px;
+		margin:auto;
+		display:block;
+	}
+	img.insideImg:active {
+		border-color:#01AEF0;
+	}
+	.canvasContainer {
+		position:fixed;
+	}
+	.blackCover {
+		background-color: red;
+		height: 100%;
+		left: 0;
+		opacity: 0.6;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 1000;
+	}
+	img.selectedGridImage {
+		width:100%;
+		height:50%;
+	}
+	.photoGridContainer {
+		visibility: visible;
+		overflow: hidden;
+		position: absolute;
+		display: inline;
+	}
+	.featureImageContainer {
+		position : relative;
+		max-width : 50%;
+		height: 50%;
+		margin:0 auto;
+		#background:#FF0000;
+	}
+	.featureSelectionWrapper {
+		position : absolute;
+		margin-left:auto;
+		margin-right:auto;
+		width:100%;
+		#background:#00FF00;
+		z-index: 1001;
+	}
+	.featureSelectButtonContainer {
+		text-align:center;
+	}
+	.featureSelectButton {
+		
+		background-color:#FFFFFF;
+		-webkit-appearance: none;
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		border-radius:6px;
+		border:3px solid #01aef0;
+		color:#e62923;
+		font-family:Helvetica Neue;
+		font-size:40px;
+		font-weight:normal;
+		text-decoration:none;
+		width:208px;
+		height:73px;
+		position:absolute;
+	}
+	.featureSelectButton:active {
+		width:210px;
+		height:75px;
+	}
+	.emailAddrInput {
+		color:#01AEF0;
+		font-family:Helvetica Neue, Arial;
+		font-size:40px;
+		position: absolute;
+		border-color:#F30000;
+		border-style:solid;
+		border-width:5px;
+		width: 300px;
+		height:35px;
+	}
+	.privacyPolicyArea {
+		border:5px solid #F30000;
+		font-family: Helvetica Neue, Arial;
+		overflow:auto;
+		color:#01AEF0;
+		background-color:#FFFFFF;
+		padding: 5px;
+		position:absolute;
+	}
+	.instructionBar {
+		background-color:#00A1FF;
+		color:#FFFFFF;
+		width:100%;
+		height:20%;
+		border-bottom-style:solid; 
+		border-bottom-color:#F30000;
+		border-bottom-width:10px;
+		font-family:Helvetica Neue, Arial;
+		font-size:120px;
+		font-weight:bold;
+		text-align:center;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		position: fixed;
+		z-index: 1000;
+	}
+	.featureSelectedPhoto {
+		border-color:#F30000;
+		border-style:solid;
+		border-width:5px;
+		position : absolute;
+		top:150px;
+		left:250px;
+	}
+	</style>
+	<script type="text/javascript">
+		// These get injected into the namespace for global
+		// application access
+		var globalStage = null;
+		var globalParentRef = null;
+		var globalSfxUtility = null;
+		var globalNetworkUtility = null;
+		
+		var touchTimeout = null;
+		
+		var globalAttractSection = null;
+		var globalPhotoSection = null;
+		var globalMainSection = null;
+		var globalPhotoGridSection = null;
+		var globalEmailInputSection = null;
+		var globalPrivacyPolicySection = null;
+		var globalEndSection = null;
+		
+		function init() {
+			// Intialize the css plugin for TweenJS
+			createjs.CSSPlugin.install(createjs.Tween);
+			
+			globalParentRef = document.getElementById("canvasParent");
+			var stageRef = document.getElementById("testCanvas");
+			globalStage = new createjs.Stage( stageRef );
+			// This will be very confusing to some..but transcendingdigital is an object
+			// this injects a property of the createJS stage into all my JS files
+			// on the global scope so all of them can access the stage
+			// This may help: http://elegantcode.com/2011/01/26/basic-javascript-part-8-namespaces/
+			//
+			// This makes it so suddenly sectionAttract, sectionAudio, sectionMain, sectionPhoto, and sectionVideo
+			// have access to the createJS stage via transcendingdigital.globalStage...well actually ALL imported JS
+			// classes have access to it
+			transcendingdigital.globalStage = globalStage;
+			transcendingdigital.globalParentRef = globalParentRef;
+			// Sets up a global event handler function
+			transcendingdigital.addEvent = function(elem, type, eventHandle) {
+				if (elem == null || elem == undefined) return;
+				if ( elem.addEventListener ) {
+					elem.addEventListener( type, eventHandle, false );
+				} else if ( elem.attachEvent ) {
+					elem.attachEvent( "on" + type, eventHandle );
+				} else {
+					elem["on"+type]=eventHandle;
+				}
+			};
+			transcendingdigital.removeEventHandler = function(elem,eventType,handler) {
+				if (elem.removeEventListener) 
+					elem.removeEventListener (eventType,handler,false);
+				if (elem.detachEvent)
+					elem.detachEvent ('on'+eventType,handler); 
+			};
+			// Set the canvas to the size of the browser
+			if(console) console.log("w:" + stageRef.width + " h:" + stageRef.height);
+			
+			stageRef.width = window.innerWidth;
+			stageRef.height = window.innerHeight;
+			
+			// Initialize the global constants
+			transcendingdigital.ApplicationEventConsts = new transcendingdigital.ApplicationEventConsts();
+			
+			// Initialize the sound effect class and put it in the global scope
+			globalSfxUtility = new transcendingdigital.UtilSFXPlayer();
+			globalSfxUtility.init();
+			transcendingdigital.globalSfxUtility = globalSfxUtility;
+			// Initialize the network requester utility and get it going
+			globalNetworkUtility = new transcendingdigital.TimedNetworkDataManager();
+			globalNetworkUtility.init(onNewData);
+			// Background watermark
+			loadBackgroundWatermark();
+			//globalAttractSection = new transcendingdigital.SectionAttract();
+			//globalAttractSection.init(window.innerWidth,window.innerHeight);
+			
+			//globalPhotoSection = new transcendingdigital.SectionPhoto();
+			//globalPhotoSection.latchMainMenuListener(onMainMenu);
+			//globalPhotoSection.init(window.innerWidth,window.innerHeight);
+			
+			//globalMainSection = new transcendingdigital.SectionMain();
+			//globalMainSection.init(window.innerWidth,window.innerHeight);
+			
+			//createSection(transcendingdigital.ApplicationEventConsts.ConstSectionPhotoGrid);
+			createSection(transcendingdigital.ApplicationEventConsts.ConstSectionAttract);
+			
+			// Create the timeout monitor and main stage listener
+			createTimeoutMonitor();
+			transcendingdigital.addEvent(canvasParent, "click", handleAppTouch);
+			
+			// Setup resize listener
+			createjs.Ticker.setFPS(20);
+			createjs.Ticker.addListener(window);
+			transcendingdigital.addEvent(window,'resize',onGlobalResize);
+			//window.onresize = onGlobalResize;
+			//alert("mo mo jo jo");
+		}
+		function onGlobalResize(event) {
+			var stageRef = document.getElementById("testCanvas");
+			stageRef.width = window.innerWidth;
+			stageRef.height = window.innerHeight;
+			
+			if(_featureImage != null) {
+				_featureImage.scaleX = (window.innerWidth * 0.7) / _featureImage.naturalWidth;
+				_featureImage.scaleY = _featureImage.scaleX;
+
+				_featureImage.x = window.innerWidth / 2 - (_featureImage.naturalWidth * _featureImage.scaleX) / 2;
+				_featureImage.y = window.innerHeight - (_featureImage.naturalHeight * _featureImage.scaleY);
+			}
+			
+			//console.log("onGlobalResize " + window.innerWidth + " h:" + window.innerHeight);
+			if(globalAttractSection != null) {
+				globalAttractSection.resizeSection(window.innerWidth,window.innerHeight);
+			}
+			if(globalPhotoSection != null) {
+				globalPhotoSection.resizeSection(window.innerWidth,window.innerHeight);
+			}
+			if(globalMainSection != null) {
+				globalMainSection.resizeSection(window.innerWidth,window.innerHeight);
+			}
+			if(globalPhotoGridSection != null) {
+				globalPhotoGridSection.resizeSection(window.innerWidth, window.innerHeight);
+			}
+			if(globalEmailInputSection != null) {
+				globalEmailInputSection.resizeSection(window.innerWidth, window.innerHeight);
+			}
+			if(globalPrivacyPolicySection != null) {
+				globalPrivacyPolicySection.resizeSection(window.innerWidth, window.innerHeight);
+			}
+			if(globalEndSection != null) {
+				globalEndSection.resizeSection(window.innerWidth, window.innerHeight);
+			}
+		}
+		function sectionExitRequest(e) {
+			// Transition the section off using its own UtilVisualHelper
+			e.visualRef.hideSection(sectionTransitionOffComplete, [e]);
+		}
+		function onMainMenuAction(e) {
+			if(console.log)console.log("index - onMainMenu " + e.sectionId);
+
+			switch(e.sectionId) {
+				case transcendingdigital.ApplicationEventConsts.ConstSectionPhoto:
+				case transcendingdigital.ApplicationEventConsts.ConstSectionAudio:
+				case transcendingdigital.ApplicationEventConsts.ConstSectionVideo:
+					destroySection(transcendingdigital.ApplicationEventConsts.ConstSectionMain);
+					createSection(e.sectionId);
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionPhotoGrid:
+				
+				break;
+				case 'SectionPhoto':
+				case 'SectionVideo':
+				case 'SectionAudio':
+					destroySection(e.sectionId);
+					//createSection('go_MainMenu');
+				break;
+			}
+		}
+		function sectionTransitionOnComplete(e) {
+			if(console.log)console.log("index - Transition ON COMPLETE");
+		}
+		function sectionTransitionOffComplete(e) {
+			if(console.log)console.log("index - Transition OFF " + e + " sectionID: " + e.sectionId + " nextSection: " + e.nextSection);
+			// Destroy the Section
+			destroySection(e.sectionId);
+			// Create the next requested section
+			createSection( e.nextSection );
+		}
+		function sectionInitComplete(e) {
+			if(console.log)console.log("index - sectionInitComplete " + e.sectionId + " visualRef: " + e.visualRef);
+			e.visualRef.showSection(sectionTransitionOnComplete);
+		}
+		function createSection(_InputType) {
+			switch(_InputType) {
+				case transcendingdigital.ApplicationEventConsts.ConstSectionPhoto:
+					globalPhotoSection = new transcendingdigital.SectionPhoto();
+					globalPhotoSection.init(window.innerWidth,window.innerHeight,sectionInitComplete,sectionTransitionOnComplete,sectionTransitionOffComplete,sectionExitRequest);
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionPhotoGrid:
+					globalPhotoGridSection = new transcendingdigital.SectionPhotoGrid();
+					globalPhotoGridSection.init(window.innerWidth,window.innerHeight,sectionInitComplete,sectionTransitionOnComplete,sectionTransitionOffComplete,sectionExitRequest);
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionVideo:
+				
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionAudio:
+				
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionMain:
+					globalMainSection = new transcendingdigital.SectionMain();
+					globalMainSection.init(window.innerWidth,window.innerHeight,sectionInitComplete,onMainMenuAction);
+					
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionAttract:
+					globalAttractSection = new transcendingdigital.SectionAttract();
+					globalAttractSection.init(window.innerWidth,window.innerHeight,sectionInitComplete,sectionTransitionOnComplete,sectionTransitionOffComplete,sectionExitRequest);
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionEmailInput:
+					globalEmailInputSection = new transcendingdigital.SectionEmailInput();
+					globalEmailInputSection.init(window.innerWidth,window.innerHeight,sectionInitComplete,sectionTransitionOnComplete,sectionTransitionOffComplete,sectionExitRequest);
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionPrivacyPolicy:
+					globalPrivacyPolicySection = new transcendingdigital.SectionPrivacyPolicy();
+					globalPrivacyPolicySection.init(window.innerWidth,window.innerHeight,sectionInitComplete,sectionTransitionOnComplete,sectionTransitionOffComplete,sectionExitRequest);
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionEnd:
+					globalEndSection = new transcendingdigital.SectionEnd();
+					globalEndSection.init(window.innerWidth,window.innerHeight,sectionInitComplete,sectionTransitionOnComplete,sectionTransitionOffComplete,sectionExitRequest);
+				break;
+			}
+		}
+		function destroySection(_InputType) {
+			switch(_InputType) {
+				case transcendingdigital.ApplicationEventConsts.ConstSectionPhoto:
+					if(globalPhotoSection != null) {
+						globalPhotoSection.destroyInternals();
+						globalPhotoSection = null;
+					}
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionPhotoGrid:
+					if(globalPhotoGridSection != null) {
+						globalPhotoGridSection.destroyInternals();
+						globalPhotoGridSection = null;
+					}
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionVideo:
+				
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionAudio:
+				
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionMain:
+					if(globalMainSection != null) {
+						globalMainSection.destroyInternals();
+						globalMainSection = null;
+					}
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionAttract:
+					if(globalAttractSection != null) {
+						globalAttractSection.destroyInternals();
+						globalAttractSection = null;
+					}
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionEmailInput:
+					if(globalEmailInputSection != null) {
+						globalEmailInputSection.destroyInternals();
+						globalEmailInputSection = null;
+					}
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionPrivacyPolicy:
+					if(globalPrivacyPolicySection != null) {
+						globalPrivacyPolicySection.destroyInternals();
+						globalPrivacyPolicySection = null;
+					}
+				break;
+				case transcendingdigital.ApplicationEventConsts.ConstSectionEnd:
+					if(globalEndSection != null) {
+						globalEndSection.destroyInternals();
+						globalEndSection = null;
+					}
+				break;
+			}
+		};
+		function onNewData( _dataObjArray ) {
+			if(globalPhotoGridSection != null) {
+				globalPhotoGridSection.incomingNewData( _dataObjArray );
+			}
+		};
+		function createTimeoutMonitor() {
+			touchTimeout = setInterval(handleTimeout, transcendingdigital.ApplicationEventConsts.constTimeoutTimeMS );
+		};
+		function destroyTimeoutMonitor() {
+			if( touchTimeout != null ) {
+				clearInterval(touchTimeout);
+				touchTimeout = null;
+			}
+		};
+		function handleTimeout(e) {
+			//console.log("MAIN - handleTimeout");
+			// Destroy anything active - return to the attract loop
+			if(globalAttractSection == null) {
+				destroySection(transcendingdigital.ApplicationEventConsts.ConstSectionPhoto);
+				destroySection(transcendingdigital.ApplicationEventConsts.ConstSectionPhotoGrid);
+				destroySection(transcendingdigital.ApplicationEventConsts.ConstSectionEmailInput);
+				destroySection(transcendingdigital.ApplicationEventConsts.ConstSectionPrivacyPolicy);
+				destroySection(transcendingdigital.ApplicationEventConsts.ConstSectionEnd);
+				
+				createSection(transcendingdigital.ApplicationEventConsts.ConstSectionAttract);
+			}
+		};
+		function handleAppTouch(e) {
+			//console.log("MAIN - handleAppTouch");
+			destroyTimeoutMonitor();
+			createTimeoutMonitor();
+		};
+		function tick() {
+            transcendingdigital.globalStage.update();
+        }
+		
+		<!-- TEMPORARY - THESE GO IN GRID SECTION -->
+		var _bgLoader;
+		var _featureImage;
+		
+		function loadBackgroundWatermark() {
+			_bgLoader = new transcendingdigital.UtilBGImgLoader();
+			_bgLoader.initImageLoad("assets/images/gearBG.png",imageLoaded);
+		}
+		function imageLoaded(e) {
+			var assets = _bgLoader.getLoadedAssets();
+			var targetImage = assets[0].result;
+			if(_featureImage != null) {
+				if(_utVisual != null) {
+					_utVisual.removeCanvasElement(_featureImage);
+					_featureImage = null;
+				}
+			}
+			_featureImage = new createjs.Bitmap(assets[0].result);
+			// Store the naturalWidth and height for later resizing
+			_featureImage.naturalWidth = assets[0].result.width;
+			_featureImage.naturalHeight = assets[0].result.height;
+			
+			_featureImage.scaleX = (window.innerWidth * 0.7) / assets[0].result.width;
+			_featureImage.scaleY = _featureImage.scaleX;
+
+			_featureImage.x = window.innerWidth / 2 - (_featureImage.naturalWidth * _featureImage.scaleX) / 2;
+			_featureImage.y = window.innerHeight - (_featureImage.naturalHeight * _featureImage.scaleY);
+			_featureImage.alpha = 0.3;
+			transcendingdigital.globalStage.addChildAt(_featureImage,0);
+			
+			if(_bgLoader != null) {
+				_bgLoader.destroyInternals();
+				_bgLoader = null;
+			}
+		}
+		
+		<!-- END TEMPORARY -->
+	</script>
+</head>
+<body onload="init();">
+	<div id="loader"></div>	
+	<div id="canvasParent" class="canvasHolder" style="position:relative;">
+		<canvas id="testCanvas" class="canvasContainer" width="700" height="400"></canvas>
+		
+		<!-- 
+		<div id="IDsoleMainHtmlContainer" name="soleMainHtmlContainer" style="position: absolute; top: 0px; left: 0px;">
+			<div style="width:700px">
+					
+						<div class="privacyPolicyArea">
+						This is the privacy policy. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+						</div>
+						<input class="featureSelectButton" type="button" value="Back" onclick="injectThumb();" />
+						<input class="featureSelectButton" type="button" value="Agree" onclick="injectThumb();" />
+			</div>
+		</div>
+		-->
+		
+			<!-- This section needs a container with a width or it will mess up
+		<div id="IDsoleMainHtmlContainer" name="soleMainHtmlContainer" style="position: absolute; top: 0px; left: 0px;">
+			<div style="width:700px">
+				<form>
+					<input type="text" class="emailAddrInput" tabindex="1" style="top:200px;left:350px;" />
+					<input class="featureSelectButton" type="button" value="Back" onclick="injectThumb();" tabindex="2"/>
+					<input class="featureSelectButton" type="button" value="Send" onclick="injectThumb();" tabindex="3"/>
+				</form>
+			</div>
+		</div>
+		  -->
+	   
+	<!--
+	  <div class="singleContainer" onclick="loadFeatureImage(1);">
+		<img class="insideImg" src="assets/images/tmpGalleryPhotos/1.jpg" />
+	  </div>
+	  <div class="singleContainer" onclick="loadFeatureImage(2);">
+		<img class="insideImg" src="assets/images/tmpGalleryPhotos/2.jpg" />
+	  </div>
+	  <div class="singleContainer" onclick="loadFeatureImage(3);">
+		<img class="insideImg" src="assets/images/tmpGalleryPhotos/3.jpg" />
+	  </div>
+	  <div class="singleContainer" onclick="loadFeatureImage(4);">
+		<img class="insideImg" src="assets/images/tmpGalleryPhotos/4.jpg" />
+	  </div>
+	  <div class="singleContainer" onclick="loadFeatureImage(5);">
+		<img class="insideImg" src="assets/images/tmpGalleryPhotos/5.jpg" />
+	  </div>
+	  <div class="singleContainer" onclick="loadFeatureImage(6);">
+		<img class="insideImg" src="assets/images/tmpGalleryPhotos/6.jpg" />
+	  </div>
+   -->
+   <!--
+	  <div id="IDsoleMainHtmlContainer" name="soleMainHtmlContainer" style="position: absolute; top: 0px; left: 0px;">
+		  <div style="width:1000px; height:600px;">
+		  <div class="instructionBar"><div>Instructions yay</div></div>
+		  
+		  <div style="display:none;">
+			  <div class="singleContainer" onclick="loadFeatureImage(7);">
+				<img class="insideImg" src="assets/images/tmpGalleryPhotos/7.jpg" />
+			  </div>
+			  <div class="singleContainer" onclick="loadFeatureImage(8);">
+				<img class="insideImg" src="assets/images/tmpGalleryPhotos/8.jpg" />
+			  </div>
+			  <div class="singleContainer" onclick="loadFeatureImage(9);">
+				<img class="insideImg" src="assets/images/tmpGalleryPhotos/9.jpg" />
+			  </div>
+			  <div class="singleContainer" onclick="loadFeatureImage(10);">
+				<img class="insideImg" src="assets/images/tmpGalleryPhotos/10.jpg" />
+			  </div>
+		  </div>
+			<img class="featureSelectedPhoto" src="assets/images/tmpGalleryPhotos/6.jpg" />
+			<input class="featureSelectButton" type="button" value="no" style="position:absolute;top:500px;left:120px;" onclick="injectThumb();" />
+			<input class="featureSelectButton" type="button" value="yes" style="position:absolute;top:500px;left:500px;" onclick="injectThumb();" />
+	  	
+		  </div>
+	  </div>
+	  -->
+	  
+	</div>
+</body>
+</html>
