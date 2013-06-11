@@ -59,7 +59,7 @@ In this script, I have my core Drupal 7 site at the location set by: $_DrupalCMS
 You will have to set a username and password that can log into your Drupal deployment and has permissions to access the view you are trying to pull.
 A recap of all the config variables:
 
-*$_DrupalCMSurl - The root url of the drupal site.
+*```php $_DrupalCMSurl ```- The root url of the drupal site.
 *$_DrupalCMSserviceEndpoint - The Drupal service endpoint name.
 *$_DrupalCMSuserName - A username that can log into Drupal.
 *$_DrupalCMSuserPassword - The password of the user above.
