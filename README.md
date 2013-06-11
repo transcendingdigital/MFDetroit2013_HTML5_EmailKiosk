@@ -59,15 +59,15 @@ In this script, I have my core Drupal 7 site at the location set by: $_DrupalCMS
 You will have to set a username and password that can log into your Drupal deployment and has permissions to access the view you are trying to pull.
 A recap of all the config variables:
 
-$_DrupalCMSurl - The root url of the drupal site.
-$_DrupalCMSserviceEndpoint - The Drupal service endpoint name.
-$_DrupalCMSuserName - A username that can log into Drupal.
-$_DrupalCMSuserPassword - The password of the user above.
-$_DrupalCMSViewName - The name of the view setup inside of drupal that provides a list of the submitted images.
-$_UseCMS - Set to true to use the CMS or false to use the directory pull.
-$_LocalCacheFiles - If set to true, it will copy images into the relative /assets/images/cachedLocalPhotos directory.
-$_DirectoryPath - An absolute directory when not using the CMS that can be used to find images to email.
-$_WebAcessiblePath - the relative path to where you want photos cached..you really should not change this.
+*$_DrupalCMSurl - The root url of the drupal site.
+*$_DrupalCMSserviceEndpoint - The Drupal service endpoint name.
+*$_DrupalCMSuserName - A username that can log into Drupal.
+*$_DrupalCMSuserPassword - The password of the user above.
+*$_DrupalCMSViewName - The name of the view setup inside of drupal that provides a list of the submitted images.
+*$_UseCMS - Set to true to use the CMS or false to use the directory pull.
+*$_LocalCacheFiles - If set to true, it will copy images into the relative /assets/images/cachedLocalPhotos directory.
+*$_DirectoryPath - An absolute directory when not using the CMS that can be used to find images to email.
+*$_WebAcessiblePath - the relative path to where you want photos cached..you really should not change this.
 
 ### 4. Configure the Static Javascript Values
 src/transcendingdigital/ApplicationEventConsts.js
