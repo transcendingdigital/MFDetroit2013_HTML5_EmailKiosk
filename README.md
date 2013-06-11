@@ -60,13 +60,21 @@ You will have to set a username and password that can log into your Drupal deplo
 A recap of all the config variables:
 
 ``` $_DrupalCMSurl ```- The root url of the drupal site.
+
 ``` $_DrupalCMSserviceEndpoint ```- The Drupal service endpoint name.
+
 ``` $_DrupalCMSuserName ```- A username that can log into Drupal.
+
 ``` $_DrupalCMSuserPassword ```- The password of the user above.
+
 ``` $_DrupalCMSViewName ```- The name of the view setup inside of drupal that provides a list of the submitted images.
+
 ``` $_UseCMS ```- Set to true to use the CMS or false to use the directory pull.
+
 ``` $_LocalCacheFiles ```- If set to true, it will copy images into the relative /assets/images/cachedLocalPhotos directory.
+
 ``` $_DirectoryPath ```- An absolute directory when not using the CMS that can be used to find images to email.
+
 ``` $_WebAcessiblePath ```- the relative path to where you want photos cached..you really should not change this.
 
 ### 4. Configure the Static Javascript Values
@@ -74,9 +82,12 @@ src/transcendingdigital/ApplicationEventConsts.js
 
 Contains the configuration options that javascript uses client side to make everything work.  You should for the most part leave
 everything alone in this file except for the following three values:
-this.constDataRequestURL = "http://192.168.0.8/app/php/emailDataProvider.php";
-this.constDataRequestTimeMS = 3000;
-this.constEmailURL = "http://192.168.0.8/app/php/emailSimple.php";
+	
+``` this.constDataRequestURL = "http://192.168.0.8/app/php/emailDataProvider.php"; ```
+
+``` this.constDataRequestTimeMS = 3000; ```
+
+``` this.constEmailURL = "http://192.168.0.8/app/php/emailSimple.php"; ```
 
 These values specify where the JSON list of images comes from, the rate to poll that script, and the script used to send email.  You should set these
 up to work in your own local environment.
