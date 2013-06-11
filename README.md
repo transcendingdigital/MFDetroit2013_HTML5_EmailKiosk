@@ -7,6 +7,12 @@ Henry Ford or Maker Faire.  It was an independent project. The experience will b
 A html5 kiosk for emailing user photos taken in an exhibit space. Integrates with Drupal 7 or a local web server. Most development on this project
 has been tested under ios5, ios6, Firefox, IE, and Chrome.
 
+UI Screen Shots
+--------------------------------------------------
+![The attract UI on an ipad1](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/tree/master/githubImages/MFDetHtml5App2.PNG "The attract UI on an ipad1")
+![Photo Selection UI on an ipad1](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/tree/master/githubImages/MFDetHtml5App3.PNG "Photo selection UI on an ipad1")
+![Terms of service page](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/tree/master/githubImages/MFDetHtml5App4.PNG "Terms of service page")
+	
 Configuration Options
 --------------------------------------------------
 There are a few important configuration items that you will need to set to get this experience to work for your situation.
