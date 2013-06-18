@@ -118,8 +118,8 @@
 																				<td align="center" style="background-color:#FFFFFF;">
 																					<div style="font-family:Arial;font-size:8px;font-weight:bold;color:#505050;line-height:130%;">
 																						<a href="http://www.github.com"><img src="http://www.transcendingdigital.com/newsletter/githubLogo.gif" alt="Github Logo" /></a>
-																						<a href="https://www.github.com/charlespalen" style="color:#000000;font-family:Arial;font-size:10px;font-weight:bold;text-decoration:underline;word-wrap:break-word;-ms-word-break: break-all; word-break: break-all;word-break: break-word;hyphens: auto;">https://www.github.com/
-																						charlespalen</a>
+																						<a href="https://github.com/transcendingdigital/" style="color:#000000;font-family:Arial;font-size:10px;font-weight:bold;text-decoration:underline;word-wrap:break-word;-ms-word-break: break-all; word-break: break-all;word-break: break-word;hyphens: auto;">https://www.github.com/
+																						transcendingdigital</a>
 																					</div>
 																				</td>
 																			</tr>
