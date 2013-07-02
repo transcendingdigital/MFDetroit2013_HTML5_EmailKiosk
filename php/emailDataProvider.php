@@ -81,8 +81,9 @@ function initiateDrupalDataPull($_DrupalURL, $_ServiceEndpointName, $_DrupalUser
 	### Settings in the view determine how many max results will be
 	### returned, sorting, formatting, etc. Views are awesome!
 	if ( $_loggedIn == true ) {
-		
-		$drupal_service_view_url = $_DrupalURL . $_ServiceEndpointName . '/views/' . $_DrupalViewName . '.json';
+		# In the view settings you have to set "show a specified number of entries" for the limit parameter to work here
+		# You also need recent versions of services and views services for the limit parameter to work...sweet special cases.
+		$drupal_service_view_url = $_DrupalURL . $_ServiceEndpointName . '/views/' . $_DrupalViewName . '.json?limit=50';
 		
 		// Define cookie session
 		$cookie_session = $logged_user->session_name . '=' . $logged_user->sessid;
