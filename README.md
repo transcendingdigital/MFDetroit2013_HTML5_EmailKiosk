@@ -4,14 +4,16 @@ Maker Faire Detroit 2013 HTML5 Email Kiosk
 This kiosk application was created for Maker Faire Detroit 2013 to accompany a green screen Kinect experience. This project is in no way affiliated with the
 Henry Ford or Maker Faire.  It was an independent project. The experience will be deployed in the exhibit space on an ipad1 and ipad2.
 
-A html5 kiosk for emailing user photos taken in an exhibit space. Integrates with Drupal 7 or a local web server. Most development on this project
-has been tested under ios5, ios6, Firefox, IE, and Chrome.
+A device independent html5 kiosk for emailing user photos taken in an exhibit space. Integrates with Drupal 7 or a local web server. Most development on this project
+has been tested under ios5, ios6, Firefox, IE, and Chrome. This is a reactive application, so it resizes itself to fit the screen area available on the device.
 
 UI Screen Shots
 --------------------------------------------------
-![The attract UI on an ipad1](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/raw/master/githubImages/MFDetHtml5App2.PNG "The attract UI on an ipad1")
+![The attract UI on an iPad](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/raw/master/githubImages/MFDetHtml5App2.PNG "The attract UI on an ipad1")
 ![Photo Selection UI on an ipad1](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/raw/master/githubImages/MFDetHtml5App3.PNG "Photo selection UI on an ipad1")
 ![Terms of service page](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/raw/master/githubImages/MFDetHtml5App4.PNG "Terms of service page")
+![The attract UI on an iPhone](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/raw/master/githubImages/ios6IPhone.jpg "The attract UI on an iPhone")
+![Image selection on an Android 4 Device](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/raw/master/githubImages/Android4PhoneVert.jpg "Image selection on an Android 4 Device")
 	
 Configuration Options
 --------------------------------------------------
@@ -22,6 +24,7 @@ In order to send e-mail this experience uses a server-side php script that uses 
 to use, but you have to configure it with your credentials. For testing, I used a gmail account; but the deployment version will use Amazon SES.
 
 Dive into /php/emailSimple.php
+
 1. Set your human readable e-mail address name where the script says YOUR NAME HERE
 2. Set your actual e-mail address where the script says YOUR EMAIL ADDRESS HERE
 3. Optionally change the subject of the email
@@ -92,6 +95,34 @@ everything alone in this file except for the following three values:
 These values specify where the JSON list of images comes from, the rate to poll that script, and the script used to send email.  You should set these
 up to work in your own local environment.
 
+### 5. Setup an Ipad as a Kiosk
+An iPad can be easily configured as a kiosk so users cannot exit the application.  The steps differ on an iPad1 vs 2 and above.
+	
+##### Using an iPad1
+The last version of ios for an iPad1 is 5.x this version requires the home button to be physically covered in a kiosk deployment.
+The iPad1 does not have the ability to close apps using a five finger pinch motion.
+
+1. Physically cover the home button using an external enclosure.
+2. In Settings -> General set Auto-Lock to Never.
+3. Open mobile Safari and navigate to the URL where this application is being run from.
+4. Press the button to add the page as a bookmark and select "Add to Home Screen".
+5. Launch the application from the new icon on your home screen.
+
+##### Using an iPad2 or above
+ios6 and up have the ability to close applications using a five finger claw like gesture this makes covering the home button
+a potential problem.  Thankfully ios6 also introduced Guided Access.
+
+1. Optionally physically cover the home button.
+2. In Settings -> General set Auto-Lock to Never.
+3. Open mobile Safari and navigate to the URL where this application is being run from.
+4. Press the button to add the page as a bookmark and select "Add to Home Screen".
+5. In Settings -> General enable Guided Access and Set a Passcode.
+6. Navigate to the icon for this app and launch it.
+7. Press the home button three times to launch the guided access options and start guided access mode.
+
+![ios6 add the app icon to your home screen](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/raw/master/githubImages/ios6iPadAddHome.jpg "ios6 add the app icon to your home screen")
+![ipad home screen showing the application icon](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/raw/master/githubImages/ios6iPadAddHome2.jpg "ipad home screen showing the application icon")
+	
 External Libraries Used
 --------------------------------------------------
 [SwiftMailer](http://swiftmailer.org/)
