@@ -7,6 +7,11 @@ Henry Ford or Maker Faire.  It was an independent project. The experience will b
 A device independent html5 kiosk for emailing user photos taken in an exhibit space. Integrates with Drupal 7 or a local web server. Most development on this project
 has been tested under ios5, ios6, Firefox, IE, and Chrome. This is a reactive application, so it resizes itself to fit the screen area available on the device.
 
+##### Motivation
+In an age of social media and smart phones, as professionals in the museum and visitor center industry it is important to keep an ever vigilant eye on accessibility for all visitors.  The one unencumbered technology that pretty much everyone has access to from grandma to foreign dignitaries is E-mail.  Although in this experience, the kiosk e-mails personal photos; it can easily be adapted to e-mail other interpretive content.
+
+Why open source this project? It is the right thing to do for this venue. We hope that institutions and individuals can dig in, tailor the project to meet their needs, and have fun learning the technology.
+
 UI Screen Shots
 --------------------------------------------------
 ![The attract UI on an iPad](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/raw/master/githubImages/MFDetHtml5App2.PNG "The attract UI on an ipad1")
@@ -121,7 +126,7 @@ a potential problem.  Thankfully ios6 also introduced Guided Access.
 7. Press the home button three times to launch the guided access options and start guided access mode.
 
 ![ios6 add the app icon to your home screen](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/raw/master/githubImages/ios6iPadAddHome.jpg "ios6 add the app icon to your home screen")
-![ipad home screen showing the application icon](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/raw/master/githubImages/ios6iPadAddHome2.jpg "ipad home screen showing the application icon")
+![ipad home screen showing the application icon](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/raw/master/githubImages/ios6iPadAddHome.jpg "ipad home screen showing the application icon")
 	
 External Libraries Used
 --------------------------------------------------
