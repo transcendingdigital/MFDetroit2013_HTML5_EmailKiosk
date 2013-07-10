@@ -126,7 +126,7 @@ a potential problem.  Thankfully ios6 also introduced Guided Access.
 7. Press the home button three times to launch the guided access options and start guided access mode.
 
 ![ios6 add the app icon to your home screen](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/raw/master/githubImages/ios6iPadAddHome.jpg "ios6 add the app icon to your home screen")
-![ipad home screen showing the application icon](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/raw/master/githubImages/ios6iPadAddHome.jpg "ipad home screen showing the application icon")
+![ipad home screen showing the application icon](https://github.com/transcendingdigital/MFDetroit2013_HTML5_EmailKiosk/raw/master/githubImages/ios6iPadAddHome2.jpg "ipad home screen showing the application icon")
 	
 External Libraries Used
 --------------------------------------------------
