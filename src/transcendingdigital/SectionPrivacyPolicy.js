@@ -66,7 +66,9 @@ transcendingdigital.SectionPrivacyPolicy = function() {
 				
 			createInstructionText();
 			createPrivacyArea();
-		
+			// Swap positioning on instructionsContainer to relative instead of fixed due to IOS bug with keyboard and fixed position
+			_instructionsContainer.style.position = "relative";
+				
 		 // Let the parent know we are ready
 		 _utVisual.raiseCustomEvent(transcendingdigital.ApplicationEventConsts.ConstEventInitComplete,[{sectionId:transcendingdigital.ApplicationEventConsts.ConstSectionPrivacyPolicy,visualRef:_utVisual}]);
 	};
@@ -105,7 +107,8 @@ transcendingdigital.SectionPrivacyPolicy = function() {
 			_btnSend.style.top = (privacyTop + _privacyTextArea.offsetHeight + 40) + "px";
 			_btnSend.style.left = sendLeft + "px";
 		}
-		
+			// Swap positioning on instructionsContainer to relative instead of fixed due to IOS bug with keyboard and fixed position
+			_instructionsContainer.style.position = "relative";
 	};
 	this.destroyInternals = function() {
 		if(	_bgLoader != null) {

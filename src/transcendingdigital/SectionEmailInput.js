@@ -68,17 +68,23 @@ transcendingdigital.SectionEmailInput = function() {
 		 createInstructionText("TOUCH The Red Box Below<br/>to Enter Your E-mail Address");
 		 createInputArea();
 		
+		// Swap positioning on instructionsContainer to relative instead of fixed due to IOS bug with keyboard and fixed position
+		_instructionsContainer.style.position = "relative";
+			
 		 // Let the parent know we are ready
 		 _utVisual.raiseCustomEvent(transcendingdigital.ApplicationEventConsts.ConstEventInitComplete,[{sectionId:transcendingdigital.ApplicationEventConsts.ConstSectionEmailInput,visualRef:_utVisual}]);
 	};
 	this.resizeSection = function(_w,_h) {
+		
 		_utVisual.resizeArea(_w,_h);
 		
 		if(_widthProviderContainer != null) {
 			_widthProviderContainer.setAttribute("style","width: " + _utVisual._currentWidth + "px;");
 		}
 		if(_instructions != null) {
-			// Rest the text size - force it to fit into the new size
+			// Rest the position to fixed for sizing
+			_instructionsContainer.style.position = "fixed";
+			// Reset the text size - force it to fit into the new size
 			_instructions.style.fontSize = "80px";
 			// Now we get to resize the text to fit the container YAY
 			_utVisual.fitTextInField( _instructionsContainer, _instructions );
@@ -104,6 +110,9 @@ transcendingdigital.SectionEmailInput = function() {
 			_btnBack.style.top = (inputTop + _inputTextField.offsetHeight + 20) + "px";
 			_btnSend.style.top = (inputTop + _inputTextField.offsetHeight + 20) + "px";
 		}
+		
+		// Swap positioning on instructionsContainer to relative instead of fixed due to IOS bug with keyboard and fixed position
+		_instructionsContainer.style.position = "relative";
 	};
 	this.destroyInternals = function() {
 		if(	_bgLoader != null) {
@@ -137,8 +146,10 @@ transcendingdigital.SectionEmailInput = function() {
 			// Show warning to users
 			if(	_instructions ) {
 
-				destroyInstructionText
+				destroyInstructionText();
 				createInstructionText("Please enter a valid e-mail address<br/>containing a . and @ character");
+				// Swap positioning on instructionsContainer to relative instead of fixed due to IOS bug with keyboard and fixed position
+				_instructionsContainer.style.position = "relative";
 				// Play narration
 				if( _playedErrorNarration == false ) {
 					_playedErrorNarration = true;
