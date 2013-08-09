@@ -67,6 +67,8 @@ transcendingdigital.SectionEnd = function() {
 		createUIDotTimer();
 		createFeaturePhoto();
 		doEmailSend();
+		// Swap positioning on instructionsContainer to relative instead of fixed due to IOS bug with keyboard and fixed position
+		_instructionsContainer.style.position = "relative";
 		
 		 // Let the parent know we are ready
 		 _utVisual.raiseCustomEvent(transcendingdigital.ApplicationEventConsts.ConstEventInitComplete,[{sectionId:transcendingdigital.ApplicationEventConsts.ConstSectionEnd,visualRef:_utVisual}]);
@@ -231,6 +233,7 @@ transcendingdigital.SectionEnd = function() {
 	};
 	function handleEmailSendComplete(e) {
 		destroyUIDotTimer();
+		destroyInstructionText();
 		if(_xmlHttp.responseText == 'SUCESS') {
 			createInstructionText("E-mail Sent!");
 		} else {
@@ -238,6 +241,8 @@ transcendingdigital.SectionEnd = function() {
 		}
 		destroyUIDotTimer();
 		destroyEmailRequest();
+		// Swap positioning on instructionsContainer to relative instead of fixed due to IOS bug with keyboard and fixed position
+		_instructionsContainer.style.position = "relative";
 		createTimer();
 	};
 	function handleEmailSendError(e) {
@@ -289,5 +294,7 @@ transcendingdigital.SectionEnd = function() {
 		destroyInstructionText();
 		createInstructionText("Sending Email Now" + _sendingDots);
 		createUIDotTimer();
+		// Swap positioning on instructionsContainer to relative instead of fixed due to IOS bug with keyboard and fixed position
+		_instructionsContainer.style.position = "relative";
 	};
 }
